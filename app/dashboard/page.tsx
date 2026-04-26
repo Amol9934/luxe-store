@@ -1,14 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { StatsCards } from '@/components/dashboard/StatsCards'
-import { RevenueChart } from '@/components/dashboard/RevenueChart'
-import { CategoryChart } from '@/components/dashboard/CategoryChart'
 import { RecentOrders } from '@/components/dashboard/RecentOrders'
 import { TopProducts } from '@/components/dashboard/TopProducts'
 import { revenueData, categoryData, recentOrders, stats } from '@/lib/dashboardData'
 import Link from 'next/link'
 import { ShoppingBag, ArrowRight } from 'lucide-react'
+
+const RevenueChart = dynamic(
+  () => import('@/components/dashboard/RevenueChart').then((m) => ({ default: m.RevenueChart })),
+  { ssr: false }
+)
+const CategoryChart = dynamic(
+  () => import('@/components/dashboard/CategoryChart').then((m) => ({ default: m.CategoryChart })),
+  { ssr: false }
+)
 
 export default function DashboardPage() {
   return (
