@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { TrendingUp, TrendingDown, ShoppingCart, DollarSign, Package, RotateCcw } from 'lucide-react'
+import { TrendingUp, TrendingDown, ShoppingCart, DollarSign, RotateCcw } from 'lucide-react'
 
 const icons = [DollarSign, ShoppingCart, TrendingUp, RotateCcw]
 

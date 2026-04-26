@@ -23,7 +23,7 @@ export default function DashboardPage() {
           <h1 className="font-display text-2xl lg:text-3xl text-stone-900 dark:text-cream-100">
             Good morning ✦
           </h1>
-          <p className="text-sm text-stone-400 mt-1">Here's what's happening with LUXE today.</p>
+          <p className="text-sm text-stone-400 mt-1">Here&apos;s what&apos;s happening with LUXE today.</p>
         </div>
         <Link href="/store">
           <motion.button
