@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LUXE Store 🛍️
+
+A premium European-style e-commerce frontend built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**.
+
+## Features
+
+- 🛒 Product listing with category filters
+- 🔍 Product detail modal with image gallery
+- 🛍️ Slide-in cart drawer with quantity controls
+- 💳 Full checkout flow (mock — no backend)
+- 🌙 Dark / Light mode toggle
+- 💾 Persistent cart via localStorage
+- 🔔 Toast notifications
+- ⏳ Loading skeletons
+- 📱 Fully responsive (mobile-first)
+- ✨ Smooth Framer Motion animations throughout
+
+## Tech Stack
+
+- **Next.js 14** (App Router)
+- **Tailwind CSS** (styling)
+- **Framer Motion** (animations)
+- **Zustand** (cart state management)
+- **react-hot-toast** (notifications)
+- **lucide-react** (icons)
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the dev server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Open in browser
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Folder Structure
 
-## Learn More
+```
+luxe-store/
+├── app/
+│   ├── globals.css          # Global styles + Tailwind
+│   ├── layout.tsx           # Root layout (Navbar, Cart, Toaster)
+│   ├── page.tsx             # Home page (product grid)
+│   └── checkout/
+│       └── page.tsx         # Checkout page (2-step flow)
+├── components/
+│   ├── ThemeProvider.tsx    # Dark/light mode context
+│   ├── Navbar.tsx           # Top navigation bar
+│   ├── CartDrawer.tsx       # Slide-in cart sidebar
+│   ├── ProductCard.tsx      # Product grid card
+│   ├── ProductModal.tsx     # Product detail modal
+│   └── ProductSkeleton.tsx  # Loading skeleton
+├── lib/
+│   ├── products.ts          # Sample product data
+│   └── store.ts             # Zustand cart store
+└── types/
+    └── index.ts             # TypeScript types
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment (Vercel)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repo to GitHub
+2. Go to [vercel.com](https://vercel.com) → Import Project
+3. Select your GitHub repo
+4. Click **Deploy** — done! ✅
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CI/CD is automatic: every `git push` triggers a new deployment.
