@@ -1,7 +1,7 @@
 'use client'
 
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { persist, createJSONStorage } from 'zustand/middleware'
 import { CartItem, Product } from '@/types'
 
 interface CartStore {
@@ -53,6 +53,20 @@ export const useCartStore = create<CartStore>()(
       total: () => get().subtotal() + get().tax(),
       itemCount: () => get().items.reduce((s, i) => s + i.quantity, 0),
     }),
-    { name: 'luxe-cart' }
+    {
+      name: 'luxe-cart',
+      storage: createJSONStorage(() => ({
+        getItem: (name) => {
+          if (typeof window === 'undefined') return null
+          return localStorage.getItem(name)
+        },
+        setItem: (name, value) => {
+          if (typeof window !== 'undefined') localStorage.setItem(name, value)
+        },
+        removeItem: (name) => {
+          if (typeof window !== 'undefined') localStorage.removeItem(name)
+        },
+      })),
+    }
   )
 )
